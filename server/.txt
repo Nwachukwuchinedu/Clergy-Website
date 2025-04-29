@@ -1,0 +1,199 @@
+Here is a list of backend APIs you will need to create based on the .vue files in your project folder. These APIs will replace the hardcoded dummy data with dynamic data fetched from the backend. I have also included the request parameters and expected responses for each API.
+
+1. Fetch All Teachings
+Frontend Usage: Teachings.vue, Home.vue, SingleTeaching.vue
+Endpoint: GET /api/teachings
+Request Parameters:
+search (optional): Search query string.
+seriesId (optional): Filter by series ID.
+tags (optional): Array of tags to filter by.
+startDate (optional): Filter by start date.
+endDate (optional): Filter by end date.
+page (optional): Current page number.
+limit (optional): Number of items per page.
+Response:
+
+{
+  "teachings": [
+    {
+      "id": "1",
+      "title": "Understanding God's Grace",
+      "slug": "understanding-gods-grace",
+      "excerpt": "A brief overview of God's grace.",
+      "content": "<p>Full teaching content...</p>",
+      "publishedAt": "2023-03-15T14:22:00Z",
+      "readingTime": 10,
+      "tags": ["grace", "faith"],
+      "seriesName": "Foundations of Faith",
+      "authorName": "Pastor Michael Johnson"
+    }
+  ],
+  "pagination": {
+    "page": 1,
+    "totalPages": 5,
+    "total": 50
+  }
+}
+
+Fetch Single Teaching by Slug
+Frontend Usage: SingleTeaching.vue
+Endpoint: GET /api/teachings/:slug
+Request Parameters:
+slug (required): The slug of the teaching.
+slug (required): The slug of the teaching.
+{
+  "id": "1",
+  "title": "Understanding God's Grace",
+  "slug": "understanding-gods-grace",
+  "content": "<p>Full teaching content...</p>",
+  "publishedAt": "2023-03-15T14:22:00Z",
+  "readingTime": 10,
+  "tags": ["grace", "faith"],
+  "seriesName": "Foundations of Faith",
+  "authorName": "Pastor Michael Johnson",
+  "relatedTeachings": [
+    {
+      "id": "2",
+      "title": "Living by Faith",
+      "slug": "living-by-faith"
+    }
+  ]
+}
+
+. Fetch All Series
+Frontend Usage: Series.vue, Home.vue, SeriesDetail.vue
+Endpoint: GET /api/series
+Request Parameters: None.
+Response:
+
+{
+  "series": [
+    {
+      "id": "1",
+      "title": "Foundations of Faith",
+      "slug": "foundations-of-faith",
+      "description": "A comprehensive series on the core beliefs of Christianity.",
+      "coverImage": "https://example.com/image.jpg",
+      "teachingCount": 5
+    }
+  ]
+}
+
+ Fetch Single Series by Slug
+Frontend Usage: SeriesDetail.vue
+Endpoint: GET /api/series/:slug
+Request Parameters:
+slug (required): The slug of the series.
+Response
+
+{
+  "id": "1",
+  "title": "Foundations of Faith",
+  "slug": "foundations-of-faith",
+  "description": "A comprehensive series on the core beliefs of Christianity.",
+  "coverImage": "https://example.com/image.jpg",
+  "teachings": [
+    {
+      "id": "1",
+      "title": "Understanding God's Grace",
+      "slug": "understanding-gods-grace",
+      "excerpt": "A brief overview of God's grace.",
+      "publishedAt": "2023-03-15T14:22:00Z",
+      "readingTime": 10
+    }
+  ]
+}
+
+5. Submit a Comment
+Frontend Usage: CommentSection.vue
+Endpoint: POST /api/comments
+Request Body:
+
+{
+  "teachingId": "1",
+  "name": "John Doe",
+  "email": "john@example.com",
+  "content": "This teaching was very insightful!"
+}
+Response:
+{
+  "id": "123",
+  "teachingId": "1",
+  "name": "John Doe",
+  "email": "john@example.com",
+  "content": "This teaching was very insightful!",
+  "date": "2023-03-15T14:22:00Z"
+}
+6. Fetch Comments for a Teaching
+Frontend Usage: CommentSection.vue
+Endpoint: GET /api/comments
+Request Parameters:
+teachingId (required): The ID of the teaching.
+Response:
+{
+  "comments": [
+    {
+      "id": "123",
+      "name": "John Doe",
+      "content": "This teaching was very insightful!",
+      "date": "2023-03-15T14:22:00Z",
+      "avatar": "https://example.com/avatar.jpg"
+    }
+  ]
+}
+. Newsletter Signup
+Frontend Usage: NewsletterSignup.vue
+Endpoint: POST /api/newsletter
+Request Body:
+{
+  "email": "john@example.com"
+}
+
+Response:
+{
+  "message": "Thank you for subscribing!"
+}
+
+Contact Form Submission
+Frontend Usage: Contact.vue
+Endpoint: POST /api/contact
+Request Body
+
+{
+  "name": "John Doe",
+  "email": "john@example.com",
+  "subject": "General Inquiry",
+  "message": "I would like to know more about your teachings."
+}
+Response
+{
+  "message": "Your message has been sent successfully."
+}
+
+9. Fetch Tags
+Frontend Usage: Teachings.vue
+Endpoint: GET /api/tags
+Request Parameters: None.
+Response
+
+{
+  "tags": ["grace", "faith", "love"]
+}
+
+10. Fetch Latest Teaching
+Frontend Usage: Home.vue
+Endpoint: GET /api/teachings/latest
+Request Parameters: None.
+Response
+
+{
+  "id": "1",
+  "title": "Understanding God's Grace",
+  "slug": "understanding-gods-grace",
+  "excerpt": "A brief overview of God's grace.",
+  "publishedAt": "2023-03-15T14:22:00Z",
+  "readingTime": 10,
+  "seriesName": "Foundations of Faith",
+  "authorName": "Pastor Michael Johnson"
+}
+
