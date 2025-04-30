@@ -5,7 +5,7 @@ import type { Series, SeriesDetailResponse } from "../types";
 export const getAllSeries = async (): Promise<Series[]> => {
   try {
     const response = await api.get("/series");        
-    return response.data;
+    return response.data?.series;
   } catch (error) {
     console.error("Error fetching series:", error);
     throw error;
