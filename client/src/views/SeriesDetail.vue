@@ -2,7 +2,6 @@
 import { onMounted, onUnmounted, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useSeriesStore } from '../store/seriesStore'
-import HeroBanner from '../components/HeroBanner.vue'
 import TeachingCard from '../components/TeachingCard.vue'
 
 const route = useRoute()
