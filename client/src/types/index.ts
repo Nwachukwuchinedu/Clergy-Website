@@ -42,8 +42,12 @@ export interface Series {
 }
 
 export interface SeriesDetailResponse {
-  series: Series
-  teachings: Teaching[]
+  id: string;
+  title: string;
+  slug: string;
+  description: string;
+  coverImage: string;
+  teachings: Teaching[];
 }
 
 // Comment related types
