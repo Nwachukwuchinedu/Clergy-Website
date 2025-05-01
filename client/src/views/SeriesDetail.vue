@@ -7,7 +7,6 @@ import TeachingCard from '../components/TeachingCard.vue'
 const route = useRoute()
 const router = useRouter()
 const seriesStore = useSeriesStore()
-console.log(seriesStore);
 
 const isLoading = computed(() => seriesStore.isLoading)
 const series = computed(() => seriesStore.currentSeries)
@@ -19,7 +18,6 @@ onMounted(async () => {
   
   // Fetch series data
   const result = await seriesStore.fetchSeriesBySlug(slug)
-  console.log(result);
   
   // If not found, redirect to 404
   if (!result) {
