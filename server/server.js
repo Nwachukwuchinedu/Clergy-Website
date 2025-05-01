@@ -15,7 +15,16 @@ const app = express();
 connectDB();
 
 // Middleware
-app.use(cors());
+// Allow requests from your Vercel frontend
+const allowedOrigins = ["https://clergy-website.vercel.app"];
+
+app.use(
+  cors({
+    origin: allowedOrigins,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true, // Enable if using cookies/auth
+  })
+);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
