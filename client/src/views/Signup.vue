@@ -10,6 +10,8 @@ const confirmPassword = ref("");
 const isLoading = ref(false);
 const errorMessage = ref("");
 
+const apiUrl = import.meta.env.VITE_APP_API_URL;
+
 const handleSignup = async () => {
   // Reset error message
   errorMessage.value = "";
@@ -38,7 +40,7 @@ const handleSignup = async () => {
   isLoading.value = true;
 
   try {
-    const response = await fetch("http://localhost:5000/api/auth/signup", {
+    const response = await fetch(`${apiUrl}/api/auth/signup`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
