@@ -31,9 +31,9 @@ onMounted(async () => {
   }
 });
 
-const navigateToTeaching = (slug: string) => {
-  router.push(`/teaching/${slug}`);
-};
+// const navigateToTeaching = (slug: string) => {
+//   router.push(`/teaching/${slug}`);
+// };
 </script>
 
 <template>
