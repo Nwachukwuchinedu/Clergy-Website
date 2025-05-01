@@ -3,7 +3,7 @@ defineProps<{
   title: string
   subtitle?: string
   ctaText?: string
-  ctaLink?: string
+  ctaLink?: string | null
   bgImage?: string
   overlay?: boolean
 }>()
