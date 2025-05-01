@@ -93,7 +93,7 @@ const router = createRouter({
   history: createWebHistory(),
   routes,
   // Smooth scrolling to top when navigating between pages
-  scrollBehavior(to, from, savedPosition) {
+  scrollBehavior(_to, _from, savedPosition) {
     if (savedPosition) {
       return savedPosition
     } else {
@@ -103,8 +103,8 @@ const router = createRouter({
 })
 
 // Update document title based on route meta
-router.beforeEach((to, from, next) => {
-  document.title = to.meta.title as string || 'Pastor\'s Teaching Website'
+router.beforeEach((_to, _from, next) => {
+  document.title = _to.meta.title as string || 'Pastor\'s Teaching Website'
   next()
 })
 
