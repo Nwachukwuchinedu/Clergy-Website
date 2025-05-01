@@ -9,7 +9,7 @@ import SeriesCard from "../components/SeriesCard.vue";
 import NewsletterSignup from "../components/NewsletterSignup.vue";
 import type { Teaching, Series } from "../types";
 
-const router = useRouter();
+// const router = useRouter();
 const teachingStore = useTeachingStore();
 const seriesStore = useSeriesStore();
 
