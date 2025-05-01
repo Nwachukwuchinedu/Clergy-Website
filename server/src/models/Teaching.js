@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import mongoosePaginate from "mongoose-paginate-v2";
 
 const TeachingSchema = new mongoose.Schema({
   title: {
@@ -49,5 +50,8 @@ const TeachingSchema = new mongoose.Schema({
     },
   ],
 });
+
+// Apply the pagination plugin
+TeachingSchema.plugin(mongoosePaginate);
 
 export default mongoose.model("Teaching", TeachingSchema);
