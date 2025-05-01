@@ -40,8 +40,12 @@ const navigateToTeaching = (slug: string) => {
   <div>
     <!-- Hero Section -->
     <HeroBanner
-      title="Growing in Faith Through Biblical Teaching"
-      subtitle="Discover spiritual insights and practical wisdom for your Christian journey"
+      :title="latestTeaching ? latestTeaching.title : null"
+      :subtitle="
+        latestTeaching
+          ? `Part of the series: ${latestTeaching.seriesName}`
+          : undefined
+      "
       ctaText="Read Latest Teaching"
       :ctaLink="latestTeaching ? `/teaching/${latestTeaching.slug}` : null"
       bgImage="https://images.pexels.com/photos/2156881/pexels-photo-2156881.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
