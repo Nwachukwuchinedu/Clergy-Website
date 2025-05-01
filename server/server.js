@@ -16,7 +16,10 @@ connectDB();
 
 // Middleware
 // Allow requests from your Vercel frontend
-const allowedOrigins = ["https://clergy-website.vercel.app"];
+const allowedOrigins = [
+  "https://clergy-website.vercel.app",
+  "http://localhost:5173",
+];
 
 app.use(
   cors({
