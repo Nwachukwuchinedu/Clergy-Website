@@ -1,92 +1,108 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
+import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 
 // Import page components
-import Home from '../views/Home.vue'
+import Home from "../views/Home.vue";
 
 // Define routes
 const routes: Array<RouteRecordRaw> = [
   {
-    path: '/',
-    name: 'Home',
+    path: "/",
+    name: "Home",
     component: Home,
     meta: {
-      title: 'Home - Pastor\'s Teachings'
-    }
+      title: "Home - Pastor's Teachings",
+    },
   },
   {
-    path: '/teachings',
-    name: 'Teachings',
-    component: () => import('../views/Teachings.vue'),
+    path: "/teachings",
+    name: "Teachings",
+    component: () => import("../views/Teachings.vue"),
     meta: {
-      title: 'Teachings Archive'
-    }
+      title: "Teachings Archive",
+    },
   },
   {
-    path: '/teaching/:slug',
-    name: 'Teaching',
-    component: () => import('../views/SingleTeaching.vue'),
+    path: "/teaching/:slug",
+    name: "Teaching",
+    component: () => import("../views/SingleTeaching.vue"),
     meta: {
-      title: 'Teaching'
-    }
+      title: "Teaching",
+    },
   },
   {
-    path: '/series',
-    name: 'Series',
-    component: () => import('../views/Series.vue'),
+    path: "/series",
+    name: "Series",
+    component: () => import("../views/Series.vue"),
     meta: {
-      title: 'Teaching Series'
-    }
+      title: "Teaching Series",
+    },
   },
   {
-    path: '/series/:slug',
-    name: 'SeriesDetail',
-    component: () => import('../views/SeriesDetail.vue'),
+    path: "/series/:slug",
+    name: "SeriesDetail",
+    component: () => import("../views/SeriesDetail.vue"),
     meta: {
-      title: 'Series Detail'
-    }
+      title: "Series Detail",
+    },
   },
   {
-    path: '/about',
-    name: 'About',
-    component: () => import('../views/About.vue'),
+    path: "/about",
+    name: "About",
+    component: () => import("../views/About.vue"),
     meta: {
-      title: 'About the Pastor'
-    }
+      title: "About the Pastor",
+    },
   },
   {
-    path: '/contact',
-    name: 'Contact',
-    component: () => import('../views/Contact.vue'),
+    path: "/contact",
+    name: "Contact",
+    component: () => import("../views/Contact.vue"),
     meta: {
-      title: 'Contact Us'
-    }
+      title: "Contact Us",
+    },
   },
   {
-    path: '/privacy-policy',
-    name: 'PrivacyPolicy',
-    component: () => import('../views/PrivacyPolicy.vue'),
+    path: "/privacy-policy",
+    name: "PrivacyPolicy",
+    component: () => import("../views/PrivacyPolicy.vue"),
     meta: {
-      title: 'Privacy Policy'
-    }
+      title: "Privacy Policy",
+    },
   },
   {
-    path: '/terms-of-service',
-    name: 'TermsOfService',
-    component: () => import('../views/TermsOfService.vue'),
+    path: "/terms-of-service",
+    name: "TermsOfService",
+    component: () => import("../views/TermsOfService.vue"),
     meta: {
-      title: 'Terms of Service'
-    }
+      title: "Terms of Service",
+    },
+  },
+  {
+    path: "/signup",
+    name: "SignUp",
+    component: () => import("../views/Signup.vue"),
+    meta: {
+      title: "Sign Up",
+    },
+  },
+  {
+    path: "/login",
+    name: "Login",
+    component: () => import("../views/Login.vue"),
+    meta: {
+      title: "Login",
+    },
   },
   // Catch-all route for 404
   {
-    path: '/:pathMatch(.*)*',
-    name: 'NotFound',
-    component: () => import('../views/NotFound.vue'),
+    path: "/:pathMatch(.*)*",
+    name: "NotFound",
+    component: () => import("../views/NotFound.vue"),
     meta: {
-      title: 'Page Not Found'
-    }
-  }
-]
+      title: "Page Not Found",
+    },
+  },
+];
 
 // Create router instance
 const router = createRouter({
@@ -95,17 +111,17 @@ const router = createRouter({
   // Smooth scrolling to top when navigating between pages
   scrollBehavior(_to, _from, savedPosition) {
     if (savedPosition) {
-      return savedPosition
+      return savedPosition;
     } else {
-      return { top: 0, behavior: 'smooth' }
+      return { top: 0, behavior: "smooth" };
     }
-  }
-})
+  },
+});
 
 // Update document title based on route meta
 router.beforeEach((_to, _from, next) => {
-  document.title = _to.meta.title as string || 'Pastor\'s Teaching Website'
-  next()
-})
+  document.title = (_to.meta.title as string) || "Pastor's Teaching Website";
+  next();
+});
 
-export default router
+export default router;
