@@ -1,7 +1,7 @@
 <script setup lang="ts">
 defineProps<{
-  title: string
-  subtitle?: string
+  title: string | null
+  subtitle?: string | null
   ctaText?: string
   ctaLink?: string | null
   bgImage?: string
