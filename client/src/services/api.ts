@@ -1,8 +1,9 @@
 import axios from 'axios'
+const apiUrl = import.meta.env.VITE_APP_API_URL;
 
 // Create a reusable axios instance with common config
 const api = axios.create({
-  baseURL: "http://localhost:5000/api", // Change this to your actual API URL in production
+  baseURL: apiUrl, // Change this to your actual API URL in production
   timeout: 10000,
   headers: {
     "Content-Type": "application/json",
