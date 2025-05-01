@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
-import { useRouter } from "vue-router";
 import { useTeachingStore } from "../store/teachingStore";
 import { useSeriesStore } from "../store/seriesStore";
 import HeroBanner from "../components/HeroBanner.vue";
@@ -9,7 +8,6 @@ import SeriesCard from "../components/SeriesCard.vue";
 import NewsletterSignup from "../components/NewsletterSignup.vue";
 import type { Teaching, Series } from "../types";
 
-// const router = useRouter();
 const teachingStore = useTeachingStore();
 const seriesStore = useSeriesStore();
 
